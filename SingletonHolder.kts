@@ -36,7 +36,7 @@ open class SingletonHolder<out T : Any, in A>(creator: (A) -> T) {
  *
  * Ex:
     class AppRepository private constructor(private val db: Database) {
-        companion object : SingletonHolderSingleArg<ArgKotlinSingleton, Database>(::AppRepository)
+        companion object : SingletonHolderSingleArg<AppRepository, Database>(::AppRepository)
     }
  
  * Uses:
@@ -53,7 +53,7 @@ open class SingletonHolderSingleArg<out T : Any, in A>(creator: (A) -> T) :
  *
  * Ex:
     class AppRepository private constructor(private val db: Database, private val apiService: ApiService) {
-        companion object : SingletonHolderPairArgs<ArgKotlinSingleton, Database, ApiService>(::AppRepository)
+        companion object : SingletonHolderPairArgs<AppRepository, Database, ApiService>(::AppRepository)
     }
  *
  * Uses:
@@ -76,7 +76,7 @@ open class SingletonHolderPairArgs<out T : Any, in A, in B>(creator: (A, B) -> T
        private val apiService: ApiService,
        private val storage : Storage
     ) {
-       companion object : SingletonHolderTripleArgs<ArgKotlinSingleton, Database, ApiService, Storage>(::AppRepository)
+       companion object : SingletonHolderTripleArgs<AppRepository, Database, ApiService, Storage>(::AppRepository)
     }
  *
  * Uses:
